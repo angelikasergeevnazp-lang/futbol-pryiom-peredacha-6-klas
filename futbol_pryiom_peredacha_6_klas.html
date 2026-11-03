@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Футбольна пригода — Прийом і передача м'яча</title>
+<style>
+:root{--navy:#10234a;--blue:#1769d2;--sky:#eaf5ff;--green:#159447;--yellow:#ffd447;--orange:#ff8a27;--red:#e44b54}
+*{box-sizing:border-box} body{margin:0;font-family:Arial,Helvetica,sans-serif;color:var(--navy);background:linear-gradient(135deg,#dff3ff,#f4fbe8 55%,#fff0d8);min-height:100vh}
+.wrap{max-width:980px;margin:0 auto;padding:22px 14px 42px}
+header{background:linear-gradient(120deg,#103b86,#1478d4);color:white;border-radius:24px;padding:24px 22px;box-shadow:0 10px 25px #173e7330;position:relative;overflow:hidden}
+header:after{content:"⚽";position:absolute;right:24px;top:10px;font-size:82px;opacity:.22}
+.kicker{font-weight:800;letter-spacing:1.5px;color:#ffe36a;font-size:13px;text-transform:uppercase}
+h1{margin:8px 0;font-size:clamp(26px,5vw,42px);line-height:1.05}header p{margin:8px 0 0;max-width:690px;line-height:1.5}
+.panel{background:#ffffffed;border:2px solid #d7e9fb;border-radius:22px;padding:22px;margin-top:18px;box-shadow:0 8px 20px #17416c12}
+.mission{display:flex;gap:12px;align-items:center;background:#fff7d7;border:1px solid #f5d56d;padding:13px 15px;border-radius:15px;margin:14px 0}
+.mission .ball{font-size:32px}.mission strong{display:block;margin-bottom:3px}
+button{border:0;border-radius:14px;padding:13px 19px;font-weight:800;font-size:16px;cursor:pointer;transition:.15s}
+button:hover{transform:translateY(-1px);filter:brightness(1.03)}button:disabled{opacity:.5;cursor:not-allowed;transform:none}
+.primary{background:linear-gradient(120deg,#087dce,#1452b7);color:white;box-shadow:0 5px 12px #1769d244}
+.secondary{background:#eaf2ff;color:#174b91}.choice{display:block;width:100%;text-align:left;background:#f5f9ff;border:2px solid #d8e7f7;color:#18345e;margin:9px 0;padding:14px 16px;line-height:1.35}
+.choice:hover{border-color:#4d91df;background:#edf6ff}.choice.correct{background:#e6f8ec;border-color:#24a455;color:#12612f}.choice.wrong{background:#fff0ef;border-color:#e45a5a;color:#8b2020}
+.topline{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;align-items:center}
+.pill{background:#e9f2ff;color:#174b91;padding:8px 12px;border-radius:99px;font-weight:800;font-size:14px}
+.track{height:12px;background:#e7edf5;border-radius:99px;overflow:hidden;margin:15px 0}.fill{height:100%;width:0;background:linear-gradient(90deg,#22a65b,#b4d832);transition:width .3s}
+.timerbox{display:flex;align-items:center;gap:10px}.timer{font-weight:900;font-size:20px;color:#174b91}.timer.low{color:#d12c38}
+.question{font-size:22px;line-height:1.35;margin:18px 0 12px}.scene{font-size:15px;color:#526781;line-height:1.5;background:#f4f8fc;padding:12px 14px;border-radius:13px}
+.feedback{padding:14px;border-radius:14px;margin-top:14px;font-weight:700;line-height:1.45;display:none}.feedback.good{display:block;background:#e7f8ed;color:#146534;border:1px solid #9bd8ad}.feedback.bad{display:block;background:#fff0ef;color:#922d2d;border:1px solid #efb0aa}
+.rowbtn{display:flex;gap:10px;justify-content:space-between;flex-wrap:wrap;margin-top:18px}
+.small{font-size:13px;color:#61738a;line-height:1.5}.hide{display:none!important}
+.stages{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:15px}.stage{background:#edf3fb;border-radius:12px;padding:10px 7px;text-align:center;font-size:12px;font-weight:800;color:#60738e}.stage.active{background:#fff0bd;color:#825400}.stage.done{background:#e1f7e8;color:#176638}
+.result{text-align:center}.bigscore{font-size:64px;font-weight:900;color:#1268bd;margin:8px}.medal{font-size:58px}
+@media(max-width:560px){.panel{padding:16px}.stages{grid-template-columns:repeat(2,1fr)}.question{font-size:19px}header:after{font-size:55px;right:10px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+ <div class="kicker">Навчальна гра • 6 клас • Фізична культура</div>
+ <h1>ФУТБОЛЬНА ПРИГОДА:<br>Майстер прийому й передачі</h1>
+ <p>Ти — новий гравець шкільної команди. Щоб потрапити до фіналу Кубка чемпіонів, пройди 4 футбольні локації та виконай 12 завдань!</p>
+</header>
+<section id="intro" class="panel">
+ <div class="mission"><div class="ball">🏟️</div><div><strong>Твоя місія</strong>Допоможи команді пройти тренувальний табір, зіграти командний матч і забити вирішальний гол.</div></div>
+ <p><b>Правила гри:</b> у тебе є 1 хвилина на кожне завдання. За правильну відповідь отримуєш 1 бал. Після кожної відповіді одразу побачиш пояснення. Усього — 12 завдань і максимум 12 балів.</p>
+ <div class="stages"><div class="stage">⚽ 1. Розминка</div><div class="stage">🎯 2. Техніка</div><div class="stage">🤝 3. Команда</div><div class="stage">🏆 4. Фінал</div></div>
+ <div class="mission"><div class="ball">⏱️</div><div><strong>Підказка</strong>Читай ситуацію уважно. Обирай відповідь і вчися на поясненнях — це теж частина гри!</div></div>
+ <button class="primary" onclick="startGame()">ПОЧАТИ ПРИГОДУ →</button>
+</section>
+<section id="game" class="panel hide">
+ <div class="topline"><span class="pill" id="location">⚽ Розминка</span><span class="pill" id="counter">Завдання 1 із 12</span><span class="timerbox">⏱️ <span id="timer" class="timer">01:00</span></span></div>
+ <div class="track"><div class="fill" id="progress"></div></div>
+ <div class="scene" id="scene"></div>
+ <div class="question" id="question"></div>
+ <div id="answers"></div>
+ <div id="feedback" class="feedback"></div>
+ <div class="rowbtn"><span class="small" id="scoreNow">⭐ Твої бали: 0</span><button id="next" class="primary hide" onclick="nextQuestion()">Наступний етап →</button></div>
+</section>
+<section id="result" class="panel result hide">
+ <div class="medal" id="medal">🏆</div><h2 id="resultTitle">Пригоду завершено!</h2>
+ <div class="bigscore" id="finalScore">0/12</div><p id="resultText"></p>
+ <div class="mission"><div class="ball">⚽</div><div><strong>Пам'ятай!</strong>Майстерність футболіста зростає завдяки тренуванням, уважності та командній грі.</div></div>
+ <button class="primary" onclick="restart()">ЗІГРАТИ ЩЕ РАЗ ↻</button>
+</section>
+</div>
+<script>
+const tasks=[
+{stage:0,scene:"Локація 1. Розминка перед виходом на поле. Тренер перевіряє, чи знаєш ти основи.",q:"Що означає «прийом м'яча» у футболі?",a:["Спрямувати м'яч партнеру","Зупинити або пом'якшити рух м'яча й узяти його під контроль","Пробігти з м'ячем якомога швидше","Забити м'яч у ворота"],c:1,why:"Прийом допомагає зупинити м'яч або пом'якшити його рух, щоб гравець міг контролювати його."},
+{stage:0,scene:"М'яч котиться до тебе по газону. Ти маєш швидко й упевнено його зупинити.",q:"Якою частиною стопи зручно зупинити м'яч, що котиться по землі?",a:["Підошвою","Коліном","П'ятою","Носком взуття"],c:0,why:"Підошву легко покласти на м'яч зверху й контрольовано зупинити його."},
+{stage:0,scene:"Ти готуєшся прийняти передачу від однокласника. Тренер нагадує про положення тіла.",q:"Як потрібно розташувати тіло перед прийомом м'яча?",a:["Стояти на прямих ногах і відвернутися","Трохи зігнути ноги, дивитися на м'яч і бути готовим рухатися","Сісти навпочіпки спиною до м'яча","Підстрибнути й заплющити очі"],c:1,why:"Зігнуті ноги допомагають зберегти рівновагу, а увага до м'яча — правильно обрати момент прийому."},
+{stage:1,scene:"Локація 2. Технічний майданчик. Ти тренуєшся приймати м'яч, який передає партнер.",q:"Як пом'якшити м'яч під час прийому внутрішньою стороною стопи?",a:["Напружити ногу й різко відштовхнути м'яч","У момент дотику трохи відвести ногу назад","Підняти ногу якомога вище","Вдарити по м'ячу ще раз"],c:1,why:"Невеликий рух ноги назад амортизує дотик і допомагає залишити м'яч поруч."},
+{stage:1,scene:"Тренер ставить конус за кілька метрів і просить виконати точну коротку передачу.",q:"Якою частиною стопи найчастіше виконують точну коротку передачу?",a:["П'ятою","Внутрішньою стороною стопи","Носком","Зовнішнім боком коліна"],c:1,why:"Внутрішня сторона стопи має зручну широку поверхню для точного спрямування м'яча."},
+{stage:1,scene:"Ти виконуєш передачу партнеру. Важливо не втратити рівновагу й спрямувати м'яч точно.",q:"Де потрібно поставити опорну ногу під час передачі м'яча?",a:["Далеко позаду себе","Поруч із м'ячем, носком у напрямку передачі","Прямо на м'яч","За спиною"],c:1,why:"Опорна нога поруч із м'ячем допомагає зберегти рівновагу та спрямувати удар."},
+{stage:2,scene:"Локація 3. Командна взаємодія. Твоя команда володіє м'ячем, суперник наближається.",q:"Партнер передав тобі м'яч. Що найкраще зробити перед наступною передачею?",a:["Не дивлячись, сильно вибити м'яч","Оцінити ситуацію, побачити вільного партнера й підготувати передачу","Зупинитися та взяти м'яч у руки","Відвернутися від поля"],c:1,why:"Футболіст має контролювати м'яч і бачити партнерів, щоб обрати точне та безпечне продовження гри."},
+{stage:2,scene:"Під час вправи м'яч летить до тебе в повітрі. Треба пом'якшити його, а не відбити далеко.",q:"Який рух допоможе прийняти м'яч стегном?",a:["Напружити стегно й різко штовхнути м'яч","Підставити стегно та трохи опустити ногу в момент дотику","Вдарити по м'ячу коліном","Повернутися спиною до м'яча"],c:1,why:"Невелике опускання стегна під час дотику пом'якшує рух м'яча, після чого його можна контролювати."},
+{stage:2,scene:"Твоя команда хоче зберегти м'яч. Потрібно обрати найкращу тактику взаємодії.",q:"Яка дія допомагає команді зберігати володіння м'ячем?",a:["Гравці стоять на місці й не пропонують себе для передачі","Гравці відкриваються, спілкуються та віддають точні передачі","Кожен гравець намагається грати лише сам","М'яч постійно вибивають навмання"],c:1,why:"Рух без м'яча, взаємодія та точні передачі дають команді більше можливостей зберегти володіння."},
+{stage:3,scene:"Локація 4. Фінальний матч! До перемоги залишилося кілька вдалих командних дій.",q:"Після прийому м'яч відскочив далеко від тебе. Що варто зробити наступного разу?",a:["Сильніше бити по м'ячу під час прийому","М'якше зустрічати м'яч і контролювати силу дотику","Не стежити за м'ячем","Одразу зупинити гру"],c:1,why:"М'який контрольований дотик допомагає залишити м'яч поблизу, а не відпустити його далеко."},
+{stage:3,scene:"Ти бачиш партнера у вільній зоні. Потрібно виконати передачу, щоб він міг продовжити атаку.",q:"У яку частину м'яча зазвичай потрібно влучити для низької передачі по землі?",a:["У нижню частину, сильно піднімаючи м'яч","Приблизно в середню частину м'яча","Лише у верхню частину","У будь-яку частину навмання"],c:1,why:"Дотик приблизно до середини м'яча допомагає спрямувати його низько по землі. Сила удару має відповідати відстані до партнера."},
+{stage:3,scene:"Останній епізод! Команда забила гол завдяки серії точних передач. Тренер питає, що робить гравця надійним партнером.",q:"Що найкраще характеризує футболіста, який уміє приймати й передавати м'яч?",a:["Він завжди грає сам і не помічає партнерів","Він контролює м'яч, обирає точну передачу та взаємодіє з командою","Він намагається бити по м'ячу якомога сильніше","Він уникає участі в командних діях"],c:1,why:"Надійний гравець контролює м'яч, приймає рішення та допомагає команді завдяки точним передачам."}
+];
+let index=0,score=0,seconds=60,timer=null,locked=false,answered=0;
+const $=id=>document.getElementById(id);
+const stageNames=["⚽ Розминка","🎯 Технічний майданчик","🤝 Командна взаємодія","🏆 Фінальний матч"];
+function startGame(){ $("intro").classList.add("hide");$("result").classList.add("hide");$("game").classList.remove("hide");index=0;score=0;showQuestion();}
+function showQuestion(){
+ clearInterval(timer);locked=false;seconds=60;
+ const t=tasks[index];$("location").textContent=stageNames[t.stage];$("counter").textContent=`Завдання ${index+1} із 12`;
+ $("progress").style.width=(index/12*100)+"%";$("scene").textContent=t.scene;$("question").textContent=t.q;
+ $("answers").innerHTML="";$("feedback").className="feedback";$("feedback").textContent="";$("next").classList.add("hide");
+ $("scoreNow").textContent=`⭐ Твої бали: ${score}`;
+ t.a.forEach((a,i)=>{const b=document.createElement("button");b.className="choice";b.textContent=["А","Б","В","Г"][i]+". "+a;b.onclick=()=>choose(i);$("answers").appendChild(b)});
+ updateTimer();timer=setInterval(()=>{seconds--;updateTimer();if(seconds<=0){clearInterval(timer);if(!locked)timeUp()}},1000);
+}
+function updateTimer(){$("timer").textContent=`00:${String(seconds).padStart(2,"0")}`;$("timer").classList.toggle("low",seconds<=15)}
+function choose(choice){if(locked)return;locked=true;clearInterval(timer);const t=tasks[index];const buttons=[...$("answers").children];buttons.forEach((b,i)=>{b.disabled=true;if(i===t.c)b.classList.add("correct");else if(i===choice)b.classList.add("wrong")});
+ if(choice===t.c){score++;$("feedback").className="feedback good";$("feedback").textContent="⚽ Чудово! "+t.why}else{$("feedback").className="feedback bad";$("feedback").textContent="Тренер пояснює: "+t.why}
+ afterAnswer();}
+function timeUp(){locked=true;[...$("answers").children].forEach(b=>b.disabled=true);$("feedback").className="feedback bad";$("feedback").textContent="⏰ Час вичерпано! "+tasks[index].why;afterAnswer()}
+function afterAnswer(){$("scoreNow").textContent=`⭐ Твої бали: ${score}`;$("next").textContent=index===11?"Побачити результат 🏆":"Продовжити пригоду →";$("next").classList.remove("hide")}
+function nextQuestion(){index++;if(index>=12){finish();return}showQuestion()}
+function finish(){clearInterval(timer);$("game").classList.add("hide");$("result").classList.remove("hide");$("progress").style.width="100%";$("finalScore").textContent=score+"/12";let title,msg,medal;if(score>=10){title="Супер! Ти зірка футбольного поля!";msg="Ти чудово орієнтуєшся у прийомі й передачі м'яча. Команда може на тебе покластися!";medal="🏆"}else if(score>=7){title="Чудова гра! Ти впевнено зростаєш!";msg="Ти добре засвоїв основи. Повтори пояснення до завдань і потренуйся ще — наступний кубок близько!";medal="🥈"}else if(score>=4){title="Гідний старт, юний футболісте!";msg="Ти вже знаєш частину футбольних секретів. Повтори техніку прийому й передачі та спробуй ще раз!";medal="🥉"}else{title="Тренувальний табір чекає на тебе!";msg="Не засмучуйся: кожен чемпіон починав із навчання. Перечитай пояснення та повернися на поле!";medal="⚽"}$("resultTitle").textContent=title;$("resultText").textContent=msg;$("medal").textContent=medal}
+function restart(){$("result").classList.add("hide");$("intro").classList.remove("hide");$("game").classList.add("hide")}
+</script>
+</body>
+</html>
